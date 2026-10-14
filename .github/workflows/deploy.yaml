@@ -27,7 +27,8 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - name: Copy CNAME into _site run: cp CNAME _site/CNAME
+      - name: Copy CNAME into _site
+        run: cp CNAME _site/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:

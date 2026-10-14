@@ -6,3 +6,9 @@
     font-family: "FiraCode Nerd Font Mono", "FiraCode NF", monospace;
 
 }
+
+.coms{
+    @apply text-neutral-300;
+    @apply max-w-[500px] flex flex-col gap-4;
+    font-family: "FiraCode Nerd Font Mono", "FiraCode NF", monospace;
+}

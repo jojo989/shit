@@ -1,11 +1,6 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>silent clubstep</title>
-    <link rel="stylesheet" href="/assets/styles.css" />
-  </head>
+---
+layout: base.html
+---
 
   <body class="min-h-screen w-full bg-neutral-900 flex flex-col justify-center items-center space-y-8 font-mono text-sm md:text-base px-8 md:px-0">
     <div class="hi">
@@ -49,7 +44,7 @@
           const a = document.createElement("a");
           a.href = t.url;
           a.className = "underline";
-          a.textContent = t.name + " - " + t.artist;
+          a.textContent = t.artist + " - " + t.name;
 
           const text = document.createElement("span");
           text.append(label, a);
@@ -63,4 +58,3 @@
       setInterval(updateNowPlaying, 20000);
     </script>
   </body>
-</html>

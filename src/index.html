@@ -2,6 +2,7 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>silent clubstep</title>
     <link rel="stylesheet" href="/assets/styles.css" />
   </head>
@@ -17,9 +18,9 @@
         <p>ds: Ninguno kjj</p>
         <a class="underline" href="/coms">coms</a>
       </div>
-
-      <div id="now-playing" class="text-gray-400 flex items-center gap-3 mt-4"></div>
     </div>
+
+    <div id="now-playing" class="fixed bottom-6 inset-x-0 px-4 m-0 flex items-center justify-center gap-3 text-gray-400 text-center"></div>
 
     <script>
       const WORKER_URL = "https://fm.neight.fyi";
@@ -50,7 +51,9 @@
           a.className = "underline";
           a.textContent = t.name + " - " + t.artist;
 
-          el.append(label, a);
+          const text = document.createElement("span");
+          text.append(label, a);
+          el.append(text);
         } catch (e) {
           
         }

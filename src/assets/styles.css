@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import url('https://cdn.jsdelivr.net/gh/mshaugh/nerdfont-webfonts@v3.3.0/build/firacode-nerd-font.css');
+
+.hi{
+    @apply max-w-[500px] flex flex-col gap-4;
+    font-family: "FiraCode Nerd Font Mono", "FiraCode NF", monospace;
+
+}

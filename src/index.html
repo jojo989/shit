@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>silent clubstep</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  
+  <body class="min-h-screen w-full bg-neutral-900 flex flex-col justify-center items-center space-y-8 text-sm md:text-base px-8 md:px-0">
+    <div class="hi">
+        <h1 class="text-5xl font-sans font-bold text-white">KJJ</h1>
+        <p>i laik Playing geometry dash and you have probably used one of my mods i posted on geode</p>
+        <p>silent clubstep is pretty cool</p>
+
+        <div class="flex flex-wrap text-gray-400 space-x-6 space-y-2 max-w-[500]">
+          <a class="underline" href="https://github.com/jojo989">my stuff</a>
+          <p>ds: Ninguno kjj</p>
+          <a class="underline" href="/coms">coms</a>
+    </div>
+
+    <p></p>
+    </div>
+
+    <div id="now-playing" class="text-gray-400 flex items-center gap-3 mt-4"></div>
+
+<script>
+  const WORKER_URL = ".fm.neight.fyi";
+
+  async function updateNowPlaying() {
+    const el = document.getElementById("now-playing");
+    try {
+      const t = await (await fetch(WORKER_URL)).json();
+      el.replaceChildren();
+
+      if (!t.nowPlaying) {
+        el.textContent = "im not playing anything rn";
+        return;
+      }
+
+      if (t.image) {
+        const img = document.createElement("img");
+        img.src = t.image;
+        img.alt = "";
+        img.className = "w-12 h-12 rounded";
+        el.append(img);
+      }
+
+      const a = document.createElement("a");
+      a.href = t.url;
+      a.className = "underline";
+      a.textContent = t.name + " - " + t.artist;
+
+      const label = document.createElement("span");
+      label.textContent = "listening 2 : ";
+      el.append(label, a);
+    } catch (e) {
+      el.textContent = "";
+    }
+  }
+
+  updateNowPlaying();
+  setInterval(updateNowPlaying, 20000);
+</script>
+
+    
+  </body>
+</html>
